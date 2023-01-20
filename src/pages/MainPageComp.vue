@@ -15,7 +15,11 @@ export default {
 <style scoped>
 
 .main-page-class {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
     background: var(--tg-theme-bg-color);
+    color: white;
 }
 
 </style>
