@@ -20,16 +20,33 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
+
+:root {
+    --color-orange-white: rgb(253, 148, 11);
+    --color-dark:rgb(0,0,0);
+    --color-text-wh: white;
+    --color-text-bk: black;
+}
+
 *{
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 
-#app {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+body {
+  /* background-image: url(./assets/36548.jpg); */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  overflow-y: hidden;
+  overflow-x: hidden;
+
 }
 
 .main-class {
