@@ -2,7 +2,7 @@ import {createStore} from "vuex";
 
 const store = createStore({
     state: () => ({
-        val: 1080,
+        token: '5871078876:AAErtPTON0UkNxv51O6TJF_fA9VeT3cOt6s',
     })
 })
 

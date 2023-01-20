@@ -15,7 +15,7 @@ export default {
 <style scoped>
 
 .main-page-class {
-
+    background: var(--tg-color-scheme);
 }
 
 </style>
