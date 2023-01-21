@@ -63,7 +63,7 @@ export default {
 .navBtn {
     padding: 6px 10px 6px 10px;
     border-radius: 10px;
-    font-size: 12px;
+    font-size: 9px;
 
     background-color: wheat;
     color: #fc3b22;

@@ -10,7 +10,7 @@
             </div>
             <div class="collection">
                 <div class="item" v-for="it in listProducts" :key="it.id">
-                    <div class="count-pay" style="font-size: 14px;">{{ '16K купили' }}</div>
+                    <div class="count-pay" style="font-size: 10px;">{{ '16K купили' }}</div>
                     <div class="sale-box">{{ it.sale + '%' }}</div>
                     <div class="event-box">{{ 'some event' }}</div>
                     <img class="image" src="@/assets/23.png" alt="" srcset="">
@@ -29,7 +29,7 @@
                             <span class="title-box">
                                 {{ it.title }}
                             </span>
-                            <span style="font-size: 13px;">{{ 'отзывы' }} ({{ '356' }})</span>
+                            <span style="font-size: 9px;">{{ 'отзывы' }} ({{ '356' }})</span>
                         </div>
                     </div>
                 </div>
@@ -125,7 +125,7 @@ export default {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-    font-size: 14px;
+    font-size: 9px;
     line-height: 20px;
     color: #999;
     font-weight: 400;
@@ -134,11 +134,13 @@ export default {
 .cost-sale {
     width: 100%;
     display: flex;
+    font-size: 9px;
+
     
 }
 
 .cost- {
-    font-size: 14px;
+    font-size: 9px;
     line-height: 20px;
     color: #242424;
     font-weight: 700;
@@ -146,14 +148,15 @@ export default {
 }
 
 .sale- {
-    font-size: 12px;
+    font-size: 9px;
     line-height: 16px;
     color: #8b8b8b;
 }
 
 .count-pay {
+    font-size: 9px;
     position: absolute;
-    transform: translateX(-60px) translateY(-160px);
+    transform: translateX(-70px) translateY(-160px);
     padding: 5px;
     display:flex;
     align-items: center;
@@ -164,8 +167,9 @@ export default {
 }
 
 .sale-box {
+    font-size: 9px;
     position: absolute;
-    transform: translateX(-75px) translateY(85px);
+    transform: translateX(-83px) translateY(100px);
     padding: 5px;
     display:flex;
     align-items: center;
@@ -176,8 +180,9 @@ export default {
 }
 
 .event-box {
+    font-size: 9px;
     position: absolute;
-    transform: translateX(-53px) translateY(55px);
+    transform: translateX(-73px) translateY(80px);
     padding: 3px;
     display:flex;
     align-items: center;
@@ -192,16 +197,16 @@ export default {
     padding: 5px;
     display:flex;
     align-items: center;
-    font-size: 14px;
+    font-size: 9px;
     justify-content: space-between;
 }
 
 .uiBtn {
-    font-size: 11px;
+    font-size: 9px;
 
     margin-top: 5px;
     /* margin-left: 10px; */
-    padding: 2px;
+    padding: 3px;
     /* text-overflow: ellipsis; */
     display: flex;
     align-items: center;

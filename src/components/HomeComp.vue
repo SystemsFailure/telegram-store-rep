@@ -195,6 +195,7 @@ export default {
 .preview-site {
     width: 100%;
     color: #333;
+    font-size: 12px;
 }
 
 .inline-title-sale {
