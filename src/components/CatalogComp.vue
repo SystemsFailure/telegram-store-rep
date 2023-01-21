@@ -197,11 +197,11 @@ export default {
 }
 
 .uiBtn {
-    font-size: 12px;
+    font-size: 11px;
 
     margin-top: 5px;
     /* margin-left: 10px; */
-    padding: 3px;
+    padding: 2px;
     /* text-overflow: ellipsis; */
     display: flex;
     align-items: center;
