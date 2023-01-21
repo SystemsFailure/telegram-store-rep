@@ -63,6 +63,8 @@ export default {
 .navBtn {
     padding: 6px 10px 6px 10px;
     border-radius: 10px;
+    font-size: 12px;
+
     background-color: wheat;
     color: #fc3b22;
     margin-left: 10px;
@@ -87,6 +89,8 @@ export default {
 
 .LogInBtn {
     padding: 4px 10px 4px 10px;
+    /* padding: 4px; */
+    font-size: 12px;
     border-radius: 10px;
     background-color: wheat;
     color: #fc3b22;

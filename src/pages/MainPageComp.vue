@@ -50,7 +50,7 @@ export default {
 
 .main-page-class {
     width: 100%;
-    height: 100vh;
+    height: 130vh;
     padding-top: 50px;
     color: black;
 }
