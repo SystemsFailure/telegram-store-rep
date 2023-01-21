@@ -23,8 +23,9 @@ export default {
 <style>
 
 :root {
-    --color-orange-white: rgb(253, 148, 11);
-    --color-dark:rgb(0,0,0);
+    --color-orange-white: #fd940b;
+    --color-white-orange: rgb(255,255,255);
+    --background-gr: linear-gradient(to right, #fc3b22, var(--color-orange-white));
     --color-text-wh: white;
     --color-text-bk: black;
 }
@@ -44,8 +45,8 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  overflow-y: hidden;
-  overflow-x: hidden;
+  /* overflow-y: hidden;
+  overflow-x: hidden; */
 
 }
 

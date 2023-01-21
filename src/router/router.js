@@ -1,10 +1,10 @@
 import {createRouter, createWebHistory} from 'vue-router'
 import MainPageComp from '@/pages/MainPageComp.vue'
-import CatalogPageComp from '@/pages/CatalogPageComp.vue'
+import RegisterComp from '@/pages/RegisterComp.vue'
 
 const routes = [
     {path: '/', component: MainPageComp, name: 'mainPage'},
-    {path: '/catalog', component: CatalogPageComp, name: 'catalogPage'},
+    {path: '/register', component: RegisterComp, name: 'regPage'},
 ]
 
 const router = createRouter({
