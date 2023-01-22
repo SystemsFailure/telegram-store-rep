@@ -35,8 +35,10 @@
                 </div>
                 <div class="pagination">
                     <div class="inner-content-pagin">
-                        <div class="item-pagination" v-for="itPagination in listProducts.length" :key="itPagination">
-                            {{ 10 }}
+                        <div class="item-pagination" v-for="itPagination in listProducts" :key="itPagination">
+                            <span style="border-radius: 50%; width: 20px; height:20px; color: white; display: flex; align-items: center; justify-content: center; font-size: 12px; background: var(--background-gr);">
+                                {{ itPagination.id }}
+                            </span>
                         </div>
                         <div class="three-points">...</div>
                         <div class="last-element">Следующая часть</div>
@@ -203,7 +205,7 @@ export default {
 .count-pay {
     font-size: 9px;
     position: absolute;
-    transform: translateX(-45px) translateY(-115px);
+    transform: translateX(-35px) translateY(-115px);
     padding: 5px;
     display:flex;
     align-items: center;
@@ -216,7 +218,7 @@ export default {
 .sale-box {
     font-size: 9px;
     position: absolute;
-    transform: translateX(-60px) translateY(60px);
+    transform: translateX(-50px) translateY(60px);
     padding: 5px;
     display:flex;
     align-items: center;
@@ -229,7 +231,7 @@ export default {
 .event-box {
     font-size: 9px;
     position: absolute;
-    transform: translateX(-50px) translateY(40px);
+    transform: translateX(-40px) translateY(40px);
     padding: 3px;
     display:flex;
     align-items: center;
@@ -251,7 +253,7 @@ export default {
 .uiBtn {
     font-size: 9px;
 
-    margin-top: 5px;
+    /* margin-top: 5px; */
     padding: 3px 10px 3px 10px;
     display: flex;
     align-items: center;
@@ -264,7 +266,7 @@ export default {
     max-width: 272px;
 }
 i {
-    margin-top: 8px;
+    margin-top: 4px;
     margin-left: 4px;
     color: #666;
 

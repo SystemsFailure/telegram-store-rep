@@ -1,17 +1,19 @@
 import {createStore} from "vuex";
 import contentsModule from "./modules/contentsMoule";
+import dbProductsController from './modules/DBProductsController';
+import adminPanel from './modules/adminPanel'
 
 const store = createStore({
     modules: {
         contentModule: contentsModule,
+        productController: dbProductsController,
+        adminPanel: adminPanel
     },
     state: () => ({
         token: '5871078876:AAErtPTON0UkNxv51O6TJF_fA9VeT3cOt6s',
-
         showHomeComp: true,
         showCatalogComp: false,
         showCartComp: false,
-
     }),
     mutations: {
         openHomeComp(state) {

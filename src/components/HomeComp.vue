@@ -56,13 +56,13 @@
                             <div class="saleCount">{{ prod.sale+'%' }}</div>
                         </div>
                         <div class="info-box">
-                            <span>
+                            <span style="color: black;">
                                 {{ prod.cost+' Руб' }}
                                 <span style="color: #555; text-decoration: line-through;">
                                     {{ prod.sale_+' Руб' }}
                                 </span>
                             </span>
-                            <span>
+                            <span style="color: black;">
                                 {{ prod.title }}
                             </span>
                         </div>
@@ -76,6 +76,7 @@
 <script>
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
+import { mapMutations } from 'vuex';
 export default {
     data() {
         return {
@@ -89,6 +90,13 @@ export default {
             ]
         }
     },
+
+    methods: {
+        ...mapMutations({
+            
+        })
+    },
+
     components: {
         Swiper,
         SwiperSlide,

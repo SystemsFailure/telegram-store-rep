@@ -54,6 +54,31 @@
                         </div>
                     </div>
 
+                    <div class="detail-product">
+                        <span style="font-size: 15px;">О товаре</span>
+                        <div class="composition-prod" v-for="ch in listCherachter" :key="ch.id">
+                            <div class="cont-cont">
+                                <div class="key-box"><span>{{ ch.key }}</span></div>
+                                <div class="value-box"><span>{{ ch.value }}</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reviews-block">
+                        <span>Отзывы</span>
+                        <div class="reviews-conte">
+                            <div class="itemReview" v-for="review in listReviews" :key="review.id">
+                                <img src="@/assets/profile.png" alt="" srcset="" id="profile-user">
+                                <span style="margin-left: 5px;">
+                                    {{ review.username }}
+                                </span>
+                                <span style="margin-left: 5px;">
+                                    {{ review.userReviewText }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
 
                 </div>
 
@@ -79,6 +104,25 @@ export default {
                 {id: 0, url: '', name: '030.png', size: ''},
                 {id: 0, url: '', name: '040.png', size: ''},
             ],
+            listCherachter: [
+                {id: 0, key: 'Ширина упаковки', value: '45 см'},
+                {id: 0, key: 'Высота упаковки', value: '50 см'},
+                {id: 0, key: 'Длина упаковки', value: '4 см'},
+                {id: 0, key: 'Покрой', value: 'полуприталенный'},
+                {id: 0, key: 'Материал подкладки', value: 'полиэстер'},
+                {id: 0, key: 'ТНВЭД', value: '6201400000'},
+                {id: 0, key: 'Тип карманов', value: 'прорезные'},
+                {id: 0, key: 'Коллекция', value: 'Осень; демисезонная одежда; Спорт'},
+                {id: 0, key: 'Особенности модели', value: 'ветрозащита'},
+                {id: 0, key: 'Страна производства', value: 'Китай'},
+                {id: 0, key: 'Пол', value: 'Мужской'},
+                {id: 0, key: 'Сезон', value: 'демисезон'},
+            ],
+            listReviews: [
+                {id: 0, imgUser:[], username: 'Hulio', userReviewText: 'This is shiiit fucker market man!', like: 12, recomendCoun: '2', dateReview:''},
+                {id: 0, imgUser:[{id: '01'}], username: 'Anna', userReviewText: 'I not see that i looking for so shhiiitt', like: 54, recomendCoun: '6', dateReview:''},
+                {id: 0, imgUser:[{id: '01'}], username: 'Hui Bliat', userReviewText: 'Oh my god, dude? Are you searslly?', like: 6, recomendCoun: '0', dateReview:''},
+            ]
         }
     },
 
@@ -179,6 +223,74 @@ export default {
     border-top: 1px solid #999;
 }
 
+.detail-product {
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+    margin-top: 10px;
+
+}
+
+
+
+.composition-prod {
+    width: 100%;
+    /* font-size: 1px; */
+    /* padding: 5px; */
+}
+
+.cont-cont {
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    font-size: 9px;
+    margin-top: 2px;
+    /* border: 1px solid #333; */
+}
+
+.key-box {
+    display: flex;
+    align-items: center;
+    color: #666;
+}
+
+.value-box {
+    margin-left: auto;
+}
+
+.reviews-block {
+    width: 100%;
+    margin-top: 15px;
+    font-size: 15px;
+    padding: 5px;
+}
+
+.reviews-conte {
+    width: 100%;
+    display: block;
+    padding: 5px;
+
+}
+
+.itemReview {
+    margin-top: 5px;
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+}
+
+#profile-user {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
 .description-box {
     display: flex;
     /* align-items: center; */
@@ -219,7 +331,7 @@ export default {
 }
 
 .wrapper0 {
-    width: 80px;
+    width: 120px;
 }
 
 .count-bays {
@@ -245,7 +357,7 @@ export default {
 }
 
 .wrapper1 {
-    width: 80px;
+    width: 120px;
 }
 
 .title-product {
