@@ -51,7 +51,10 @@
                 @slideChange="onSlideChange"
                 >
                     <swiper-slide class="slide" v-for="prod in listSaleProduct" :key="prod.id">
-                        <img class="img-prod" :src="require('@/assets/' + prod.imgUrl)" alt="">
+                        <div class="img-container">
+                            <img class="img-prod" :src="require('@/assets/' + prod.imgUrl)" alt="">
+                            <div class="saleCount">{{ prod.sale+'%' }}</div>
+                        </div>
                         <div class="info-box">
                             <span>
                                 {{ prod.cost+' Руб' }}
@@ -62,7 +65,6 @@
                             <span>
                                 {{ prod.title }}
                             </span>
-                            <div class="saleCount">{{ prod.sale+'%' }}</div>
                         </div>
                     </swiper-slide>
                 </swiper>
@@ -126,6 +128,7 @@ export default {
 
 
 .LOGO {
+    color: black;
     font-size: 45px;
     font-family: cursive;
     font-weight: bold;
@@ -146,11 +149,12 @@ export default {
 .inner-cont-home {
     width: 95%;
     height: 95%;
-    border: 1px solid #333;
+    /* border: 1px solid #f98100; */
+    box-shadow: 2px 2px 15px #222;
     border-radius: 10px;
     position: relative;
     padding: 8px;
-    background: url('@/assets/LOGOPRO2.jpg');
+    /* background: url('@/assets/LOGOPRO2.jpg'); */
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
@@ -165,6 +169,7 @@ export default {
 }
 
 .viewBtn {
+    font-size: var(--fSize);
     padding: 8px;
     color:white;
     background: var(--background-gr);
@@ -176,7 +181,7 @@ export default {
     margin-top: 10px;
     font-family: "Gill Sans", sans-serif;
     text-transform: uppercase;
-    font-size: 10px;
+    font-size: var(--fSize);
 }
 
 .viewBtn:hover {
@@ -186,28 +191,32 @@ export default {
 }
 
 .box-preview {
-    width: 60%;
+    width: 100%;
     display:flex;
     flex-direction:column;
     color: white;
 }
 
 .preview-site {
+    line-height: 16px;
+    color: #8b8b8b;
+    margin: 0 0 10px;
     width: 100%;
     color: #333;
-    font-size: 12px;
+    font-size: 10px;
 }
 
 .inline-title-sale {
+    font-size: var(--fSize);
     position: absolute;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(90deg, rgba(252,59,34,1) 0%, rgba(252,59,34,0.30015756302521013) 35%, rgba(253,148,11,1) 100%);
+    background: linear-gradient(90deg, rgba(252,59,34,1) 100%, rgba(252,59,34,0.30015756302521013) 100%, rgba(253,148,11,1) 100%);
     bottom: 60px;
     border-radius: 5px;
-    color:white;
+    color: white;
     padding: 5px;
 }
 
@@ -218,6 +227,8 @@ export default {
 }
 
 .slide {
+    position: relative;
+    font-size: var(--fSize);
     width: 100%;
     height: 100%;
     display: flex;
@@ -232,7 +243,8 @@ export default {
 .saleCount {
     position: absolute;
     padding: 2px;
-    transform: translateX(10px) translateY(-35px);
+    transform: translateY(-35px);
+    color: white;
     background: linear-gradient(90deg, rgba(252,59,34,1) 0%, rgba(252,59,34,0.30015756302521013) 35%, rgba(253,148,11,1) 100%);
     border-radius: 5px;
     display: flex;
@@ -253,10 +265,12 @@ export default {
 }
 
 .img-prod {
+    position: relative;
+
     width: 100%;
     height: 100%;
     border-radius: 15px;
-    border:2px solid #222;
+    /* border:2px solid #222; */
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;

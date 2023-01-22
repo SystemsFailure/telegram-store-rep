@@ -28,6 +28,7 @@ export default {
     --background-gr: linear-gradient(to right, #fc3b22, var(--color-orange-white));
     --color-text-wh: white;
     --color-text-bk: black;
+    --fSize: 9px;
 }
 
 *{

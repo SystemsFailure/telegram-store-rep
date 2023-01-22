@@ -1,6 +1,10 @@
 import {createStore} from "vuex";
+import contentsModule from "./modules/contentsMoule";
 
 const store = createStore({
+    modules: {
+        contentModule: contentsModule,
+    },
     state: () => ({
         token: '5871078876:AAErtPTON0UkNxv51O6TJF_fA9VeT3cOt6s',
 
