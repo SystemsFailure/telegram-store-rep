@@ -1,12 +1,14 @@
 import {createStore} from "vuex";
 import contentsModule from "./modules/contentsMoule";
 import dbProductsController from './modules/DBProductsController';
+import productIDController from './modules/prodIDController'
 import adminPanel from './modules/adminPanel'
 
 const store = createStore({
     modules: {
         contentModule: contentsModule,
         productController: dbProductsController,
+        productIDController: productIDController,
         adminPanel: adminPanel
     },
     state: () => ({

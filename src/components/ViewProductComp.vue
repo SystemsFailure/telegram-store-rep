@@ -25,21 +25,21 @@
                 <div class="info-box">
                     <div class="cost-box">
                         <div class="wrapper0">
-                            <span>8899 руб</span>
-                            <span style=" margin-left: 8px; font-size: 9px; font-size: 9px; text-decoration: line-through; line-height: 10px; color: #8b8b8b;">11999</span>
+                            <span id="costProduct">8899 руб</span>
+                            <span id="saleProduct" style=" margin-left: 8px; font-size: 9px; font-size: 9px; text-decoration: line-through; line-height: 10px; color: #8b8b8b;">11999</span>
                         </div>
-                        <div class="count-bays"><span>Более <span style="color: rgb(200, 104, 0);">{{'21300'}}</span> купили</span></div>
+                        <div class="count-bays"><span>Более <span id="countBuys" style="color: rgb(200, 104, 0);">{{'21300'}}</span> купили</span></div>
                     </div>
                     <div class="color-box">
                         <div class="wrapper1">
-                            <span style="color: #8b8b8b;">Цвет: </span><span style="margin-left: 8px;">Черный</span>
+                            <span style="color: #8b8b8b;">Цвет: </span><span id="colorProduct" style="margin-left: 8px;">Черный</span>
                         </div>
-                        <div class="count-review"><span>1365 отзывов</span></div>
+                        <div class="count-review"><span id="countReview">1365 отзывов</span></div>
                     </div>
 
                     <div class="deep-info-box">
-                        <div class="brand-box"><span>GUCCI</span></div>
-                        <div class="title-prod-box"><span>Пальто Серое, Шелк 100%, Не кордиган с большим рукавом</span></div>
+                        <div class="brand-box"><span id="brandProduct">GUCCI</span></div>
+                        <div class="title-prod-box"><span id="nameProduct">Пальто Серое, Шелк 100%, Не кордиган с большим рукавом</span></div>
 
                         <div class="articule-box">
                             ID: <span class="id-art" id="uid-articule">f56op782fu32</span>
@@ -49,7 +49,7 @@
                     <div class="about-product">
                         <div class="description-box">
                             <span style="font-size: 15px;">Описание</span>
-                            <span style="line-height: 10px; margin-bottom: 5px;">Кожаная мужская куртка из высококачественной экокожи- актуальная и комфортная вещь в мужском гардеробе. Куртка бомбер мужская - универсальная базовая модель. Куртка косуха черная кожаная отлично</span>
+                            <span style="line-height: 10px; margin-bottom: 5px;" id="titleProduct">Кожаная мужская куртка из высококачественной экокожи- актуальная и комфортная вещь в мужском гардеробе. Куртка бомбер мужская - универсальная базовая модель. Куртка косуха черная кожаная отлично</span>
                             <span style="font-size: 12px;">Развернуть описание</span>
                         </div>
                     </div>
@@ -59,7 +59,7 @@
                         <div class="composition-prod" v-for="ch in listCherachter" :key="ch.id">
                             <div class="cont-cont">
                                 <div class="key-box"><span>{{ ch.key }}</span></div>
-                                <div class="value-box"><span>{{ ch.value }}</span></div>
+                                <div class="value-box"><span :id="ch.id + product" class="valuesProducts">{{ ch.value }}</span></div>
                             </div>
                         </div>
                     </div>
@@ -93,8 +93,19 @@ import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
-
 import { mapMutations } from 'vuex';
+
+// let costProduct = document.getElementById('costProduct')
+// let saleProduct = document.getElementById('saleProduct')
+// let countBuys = document.getElementById('countBuys')
+// let colorProduct = document.getElementById('colorProduct')
+// let countReview = document.getElementById('countReview')
+// let brandProduct = document.getElementById('brandProduct')
+// let nameProduct = document.getElementById('nameProduct')
+// let idProduct = document.getElementById('uid-articule')
+// let titleProduct = document.getElementById('titleProduct')
+// let valuesProducts = document.getElementsByClassName('valuesProducts')
+
 export default {
     data() {
         return {
@@ -106,17 +117,17 @@ export default {
             ],
             listCherachter: [
                 {id: 0, key: 'Ширина упаковки', value: '45 см'},
-                {id: 0, key: 'Высота упаковки', value: '50 см'},
-                {id: 0, key: 'Длина упаковки', value: '4 см'},
-                {id: 0, key: 'Покрой', value: 'полуприталенный'},
-                {id: 0, key: 'Материал подкладки', value: 'полиэстер'},
-                {id: 0, key: 'ТНВЭД', value: '6201400000'},
-                {id: 0, key: 'Тип карманов', value: 'прорезные'},
-                {id: 0, key: 'Коллекция', value: 'Осень; демисезонная одежда; Спорт'},
-                {id: 0, key: 'Особенности модели', value: 'ветрозащита'},
-                {id: 0, key: 'Страна производства', value: 'Китай'},
-                {id: 0, key: 'Пол', value: 'Мужской'},
-                {id: 0, key: 'Сезон', value: 'демисезон'},
+                {id: 1, key: 'Высота упаковки', value: '50 см'},
+                {id: 2, key: 'Длина упаковки', value: '4 см'},
+                {id: 3, key: 'Покрой', value: 'полуприталенный'},
+                {id: 4, key: 'Материал подкладки', value: 'полиэстер'},
+                {id: 5, key: 'ТНВЭД', value: '6201400000'},
+                {id: 6, key: 'Тип карманов', value: 'прорезные'},
+                {id: 7, key: 'Коллекция', value: 'Осень; демисезонная одежда; Спорт'},
+                {id: 8, key: 'Особенности модели', value: 'ветрозащита'},
+                {id: 9, key: 'Страна производства', value: 'Китай'},
+                {id: 10, key: 'Пол', value: 'Мужской'},
+                {id: 11, key: 'Сезон', value: 'демисезон'},
             ],
             listReviews: [
                 {id: 0, imgUser:[], username: 'Hulio', userReviewText: 'This is shiiit fucker market man!', like: 12, recomendCoun: '2', dateReview:''},

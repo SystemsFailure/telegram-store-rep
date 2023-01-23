@@ -10,10 +10,15 @@
             </div>
             <div class="collection">
                 <div class="item" v-for="it in listProducts" :key="it.id" @click="openViewProduct">
-                    <div class="count-pay" style="font-size: 10px;">{{ '16K купили' }}</div>
-                    <div class="sale-box">{{ it.sale + '%' }}</div>
-                    <div class="event-box">{{ 'some event' }}</div>
-                    <img class="image" :src="require('@/assets/' + it.imgUrl)" alt="" srcset="">
+                    <div class="wrpper-box-top-info">
+                        <div class="count-pay" style="font-size: 9px;"><span id="countBuysID">{{ `${it.countBuys} купили` }}</span></div>
+                        <div class="commentUser">
+                            <span id="commentID" style="font-size: 9px;">{{ 'отзывы' }} ({{ it.arrayUsersReviews }})</span>
+                        </div>
+                    </div>
+                    <div class="sale-box"><span id="sale-id">{{ it.procentSale + '%' }}</span></div>
+                    <div class="event-box"><span id="eventID">{{ it.typeEvent ? 'some event' : undefined }}</span></div>
+                    <img class="image" :src="require('@/assets/03.png')" alt="" srcset="">
                     <!-- {{ it.title }} -->
                     <div class="info-box">
                         <div class="cost-sale">
@@ -21,15 +26,15 @@
                                 {{ it.cost + ' Руб' }}
                             </span>
                             <span class="sale-" style="color: #555; text-decoration: line-through;">
-                                {{ it.countSale + ' Руб' }}
+                                {{ it.sale + ' Руб' }}
                             </span>
                         </div>
-                        <span style="font-size: 12px;">{{ 'Nike' }}</span>
+                        <span style="font-size: 12px;">{{ it.brand }}</span>
                         <div class="wrapper">
                             <span class="title-box">
                                 {{ it.title }}
                             </span>
-                            <span style="font-size: 9px;">{{ 'отзывы' }} ({{ '356' }})</span>
+                            <!-- <span style="font-size: 9px;">{{ 'отзывы' }} ({{ it.arrayUsersReviews }})</span> -->
                         </div>
                     </div>
                 </div>
@@ -49,32 +54,46 @@
     </div>
 </template>
 <script>
-import { mapMutations } from 'vuex';
+import { mapMutations, mapActions } from 'vuex';
 export default {
     data() {
         return {
-            listProducts: [
-                {id: 0, title: 'Джинсы Ласкут', cat: 'Jens', imgUrl: '03.png', cost: '1399', sale: '56', countSale: '1999'},
-                {id: 1, title: 'Шорты Ласкут', cat: 'Jens', imgUrl: '23.png', cost: '1399', sale: '56', countSale: '1999'},
-                {id: 2, title: 'Калготки Ласкут', cat: 'Jens', imgUrl: '25.png', cost: '1399', sale: '56', countSale: '1999'},
-                {id: 3, title: 'Руьашка Ласкут', cat: 'Jens', imgUrl: '07.png', cost: '1399', sale: '56', countSale: '1999'},
-                {id: 4, title: 'Брюки Ласкут', cat: 'Jens', imgUrl: '13.png', cost: '1399', sale: '56', countSale: '1999'},
-                {id: 5, title: 'Шапка Ласкут', cat: 'Jens', imgUrl: '19.png', cost: '1399', sale: '56', countSale: '1999'},
-                {id: 6, title: 'Худи Ласкут', cat: 'Jens', imgUrl: '03.png', cost: '1399', sale: '56', countSale: '1999'},
-                {id: 7, title: 'Перчатки Ласкут', cat: 'Jens', imgUrl: '07.png', cost: '1399', sale: '56', countSale: '1999'},
-                {id: 8, title: 'Перчатки Ласкут', cat: 'Jens', imgUrl: '23.png', cost: '1399', sale: '56', countSale: '1999'},
-            ],
+            listProducts: [],
         }
+    },
+    mounted() {
+        this.getAllProducts().then((array) => {
+            this.listProducts = array
+        })
     },
     methods: {
         ...mapMutations('contentModule', {
             openViewProduct: 'openViewProductComp',
             closeViewProduct: 'closeViewProductComp',
-        })
+        }),
+        ...mapActions('productController', {
+            getAllProducts: 'getAllProducts',
+        }),
     }
 }
 </script>
 <style scoped>
+.wrpper-box-top-info {
+    width: 100%;
+    display: flex;
+}
+
+.commentUser {
+    width: 50%;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+}
+
+#commentID {
+    margin-left: auto;
+    margin-right: 2px;
+}
 
 .pagination {
     position: absolute;
@@ -203,22 +222,26 @@ export default {
 }
 
 .count-pay {
-    font-size: 9px;
-    position: absolute;
-    transform: translateX(-35px) translateY(-115px);
-    padding: 5px;
-    display:flex;
+    bottom: 6px;
+    width: 100%;
+    display: flex;
     align-items: center;
-    justify-content: center;
-    /* border-radius: 10px; */
-    color: white;
-    background: linear-gradient(90deg, rgba(252,59,34,1) 0%, rgba(252,59,34,0.30015756302521013) 35%, rgba(253,148,11,1) 100%);
+    padding: 5px;
 }
 
 .sale-box {
+    position: absolute;
+    bottom: 23%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+#sale-id {
     font-size: 9px;
     position: absolute;
-    transform: translateX(-50px) translateY(60px);
+    /* transform: translateX(-35px) translateY(-115px); */
     padding: 5px;
     display:flex;
     align-items: center;
@@ -229,9 +252,18 @@ export default {
 }
 
 .event-box {
+    position: absolute;
+    bottom: 30%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+#eventID {
     font-size: 9px;
     position: absolute;
-    transform: translateX(-40px) translateY(40px);
+    /* transform: translateX(-40px) translateY(40px); */
     padding: 3px;
     display:flex;
     align-items: center;

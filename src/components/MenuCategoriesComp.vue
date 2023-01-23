@@ -3,6 +3,7 @@
         <div class="inline-close"></div>
         <div class="inner">
             <div class="list-menu">
+                <div class="ratfat" id="fatrat"></div>
                 <div class="item" v-for="it in listCategory" :key="it.id">
                     <span :style="it.id===listCategory[listCategory.length - 1].id?{'color':'#999'}:{'color':'#333'}" @click="openCategory(it.id, it)">{{ it.title }}</span>
                 </div>
@@ -17,7 +18,8 @@ export default {
             listCategory: [
                 {id: 0, title: 'Мужчинам'},
                 {id: 1, title: 'Женщинам'},
-                {id: 2, title: 'Админ Панель'},
+                {id: 2, title: 'Детям'},
+                {id: 3, title: 'Админ Панель'},
             ]
         }
     },
@@ -26,6 +28,9 @@ export default {
             if(id === this.listCategory[this.listCategory.length - 1].id)
             {
                 console.log('Вы авторезированны как обычный пользователь')
+                let text = document.getElementById('fatrat')
+                text.style.color = 'red'
+                text.innerHTML = 'Ты блядина жирная не админ! Меня не наебешь хуила!'
             } else {
                 console.log('открыть категорию: ' + it.title)
             }

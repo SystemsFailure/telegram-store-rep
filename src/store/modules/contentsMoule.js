@@ -3,7 +3,6 @@ const contentsModule = {
     namespaced: true,
     state: () => ({
         showViewProductComp: false,
-
     }),
     mutations: {
         openViewProductComp(state) {
