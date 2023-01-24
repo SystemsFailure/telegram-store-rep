@@ -13,7 +13,7 @@
                     <div class="wrpper-box-top-info">
                         <div class="count-pay" style="font-size: 9px;"><span id="countBuysID">{{ `${it.countBuys} купили` }}</span></div>
                         <div class="commentUser">
-                            <span id="commentID" style="font-size: 9px;">{{ 'отзывы' }} ({{ it.arrayUsersReviews }})</span>
+                            <span id="commentID">{{ 'отзывы' }} ({{ it.arrayUsersReviews }})</span>
                         </div>
                     </div>
                     <div class="sale-box"><span id="sale-id">{{ it.procentSale + '%' }}</span></div>
@@ -93,6 +93,7 @@ export default {
 #commentID {
     margin-left: auto;
     margin-right: 2px;
+    font-size: 7px;
 }
 
 .pagination {

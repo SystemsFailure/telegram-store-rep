@@ -4,10 +4,15 @@ import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 const adminPanel = {
     namespaced: true,
     state: () => ({
-
+        showDashboard: false,
     }),
     mutations: {
-
+        openDashboard(state) {
+            state.showDashboard = true
+        },
+        closeDashboard(state) {
+            state.showDashboard = false
+        }
     },
     actions: {
         async getCountImageNumber() {

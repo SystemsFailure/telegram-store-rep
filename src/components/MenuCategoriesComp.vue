@@ -12,6 +12,7 @@
     </div>
 </template>
 <script>
+import { mapMutations } from 'vuex'
 export default {
     data() {
         return {
@@ -23,6 +24,9 @@ export default {
             ]
         }
     },
+    computed: {
+
+    },
     methods: {
         openCategory(id, it) {
             if(id === this.listCategory[this.listCategory.length - 1].id)
@@ -31,10 +35,14 @@ export default {
                 let text = document.getElementById('fatrat')
                 text.style.color = 'red'
                 text.innerHTML = 'Ты блядина жирная не админ! Меня не наебешь хуила!'
+                this.openDashboard()
             } else {
                 console.log('открыть категорию: ' + it.title)
             }
         },
+        ...mapMutations('adminPanel', {
+            openDashboard: 'openDashboard',
+        }),
     }
 }
 </script>

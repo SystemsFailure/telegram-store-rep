@@ -2,6 +2,7 @@
     <div class="menuBtn" @click="openMenu">menu</div>
     <MenuCategoriesComp v-if="showMenuComp"></MenuCategoriesComp>
     <ViewProductCompVue v-if="showViewProductComp"></ViewProductCompVue>
+    <dashboardComp v-if="showDashboard"></dashboardComp>
     <div class="main-page-class">
         <NavigationComp
         @openHomeFunction="() => {this.openHomeComp()}"
@@ -23,6 +24,7 @@ import CatalogCompVue from '@/components/CatalogComp.vue';
 import CartComp from '@/components/CartComp.vue';
 import ViewProductCompVue from '@/components/ViewProductComp.vue';
 import MenuCategoriesComp from '@/components/MenuCategoriesComp.vue'
+import dashboardComp from '@/components/dashboardComp.vue'
 import { mapState, mapMutations } from 'vuex';
 
 export default {
@@ -42,6 +44,10 @@ export default {
         ...mapState('contentModule', {
             showViewProductComp: state => state.showViewProductComp
         }),
+
+        ...mapState('adminPanel', {
+            showDashboard: 'showDashboard',
+        })
     },
     methods: {
         ...mapMutations({
@@ -59,7 +65,8 @@ export default {
     components: {
         NavigationComp, HomeCompVue,
         CatalogCompVue, CartComp,
-        ViewProductCompVue, MenuCategoriesComp
+        ViewProductCompVue, MenuCategoriesComp,
+        dashboardComp
     },
 }
 </script>
