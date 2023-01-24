@@ -3,7 +3,7 @@ import { collection, query, getDocs } from "firebase/firestore";
 const dbProductsController = {
     namespaced: true,
     state: () => ({
-        listProducts: []
+        listProducts: [],
     }),
     mutations: {
         pushListProducts(state, data) {

@@ -1,26 +1,32 @@
 <template>
-    <ModuleCretedProductCard></ModuleCretedProductCard>
+    <ModuleCretedProductCard v-if="showCreatedWindow"></ModuleCretedProductCard>
     <div class="main-class-dashboard">
         <div class="closebtn"><i @click="closeDashboard" style="color: #333; margin-left: auto; font-size: 12px;" class="fi fi-bs-cross"></i></div>
         <div class="inner">
             <div class="create-product-box">
-                <span @click="() => {}">Создать продукт</span>
+                <span @click="() => this.openCreatedWindow()">Создать продукт</span>
             </div>
         </div>
     </div>
 </template>
 <script>
 import ModuleCretedProductCard from '@/components/ModuleCretedProductCard.vue'
-import {mapMutations} from 'vuex'
+import {mapMutations, mapState} from 'vuex'
 export default {
     data() {
         return {
             
         }
     },
+    computed: {
+        ...mapState('adminPanel', {
+            showCreatedWindow: 'showCreatedWindow'
+        })
+    },
     methods: {
         ...mapMutations('adminPanel', {
-            closeDashboard: 'closeDashboard'
+            closeDashboard: 'closeDashboard',
+            openCreatedWindow: 'openCreatedWindow'
         }),
     },
     components: {
