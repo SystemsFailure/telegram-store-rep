@@ -1,8 +1,6 @@
 import { db, storage } from "@/main"
-// import { storage } from "@/main"
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { collection, addDoc, doc, getDoc, updateDoc, increment, arrayUnion } from "firebase/firestore";
-// import { contains } from "@firebase/util";
 const adminPanel = {
     namespaced: true,
     state: () => ({

@@ -137,7 +137,7 @@ export default {
 
 .LOGO {
     color: black;
-    font-size: 45px;
+    font-size: 40px;
     font-family: cursive;
     font-weight: bold;
 }
@@ -157,6 +157,7 @@ export default {
 .inner-cont-home {
     width: 95%;
     height: 95%;
+    overflow: auto;
     /* border: 1px solid #f98100; */
     box-shadow: 2px 2px 15px #222;
     border-radius: 10px;

@@ -18,7 +18,7 @@
                     </div>
                     <div class="sale-box"><span id="sale-id">{{ it.procentSale + '%' }}</span></div>
                     <div class="event-box"><span id="eventID">{{ it.typeEvent ? 'some event' : undefined }}</span></div>
-                    <img class="image" :src="require('@/assets/03.png')" alt="" srcset="">
+                    <img class="image" :src="it.arrayImages[0]" alt="" srcset="">
                     <!-- {{ it.title }} -->
                     <div class="info-box">
                         <div class="cost-sale">
@@ -40,9 +40,9 @@
                 </div>
                 <div class="pagination">
                     <div class="inner-content-pagin">
-                        <div class="item-pagination" v-for="itPagination in listProducts" :key="itPagination">
+                        <div class="item-pagination" v-for="itPagination in listProducts.length" :key="itPagination">
                             <span style="border-radius: 50%; width: 20px; height:20px; color: white; display: flex; align-items: center; justify-content: center; font-size: 12px; background: var(--background-gr);">
-                                {{ itPagination.id }}
+                                {{ itPagination }}
                             </span>
                         </div>
                         <div class="three-points">...</div>
