@@ -208,7 +208,7 @@ export default {
 
 .preview-site {
     line-height: 16px;
-    color: #616161;
+    color: var(--tg-theme-text-color);
     margin: 0 0 10px;
     width: 100%;
     /* color: #333; */
