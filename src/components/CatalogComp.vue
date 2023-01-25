@@ -29,7 +29,7 @@
                                 {{ it.sale + ' Руб' }}
                             </span>
                         </div>
-                        <span style="font-size: 12px;">{{ it.brand }}</span>
+                        <span style="font-size: 12px; color: var(--tg-theme-text-color);">{{ it.brand }}</span>
                         <div class="wrapper">
                             <span class="title-box">
                                 {{ it.title }}
@@ -230,6 +230,7 @@ export default {
     display: flex;
     align-items: center;
     padding: 5px;
+    color: var(--tg-theme-text-color);
 }
 
 .sale-box {
@@ -300,6 +301,7 @@ export default {
     white-space: nowrap;
     max-width: 272px;
     background: var(--tg-theme-bg-color);
+    color: var(--tg-theme-text-color);
 }
 i {
     margin-top: 4px;

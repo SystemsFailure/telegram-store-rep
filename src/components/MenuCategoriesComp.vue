@@ -5,7 +5,7 @@
             <div class="list-menu">
                 <div class="ratfat" id="fatrat"></div>
                 <div class="item" v-for="it in listCategory" :key="it.id">
-                    <span :style="it.id===listCategory[listCategory.length - 1].id?{'color':'#999'}:{'color':'#333'}" @click="openCategory(it.id, it)">{{ it.title }}</span>
+                    <span :style="it.id===listCategory[listCategory.length - 1].id?{'color':'var(--tg-theme-text-color)'}:{'color':'var(--tg-theme-text-color)'}" @click="openCategory(it.id, it)">{{ it.title }}</span>
                 </div>
             </div>
         </div>
@@ -56,7 +56,7 @@ export default {
 }
 
 .main-class-menu {
-    background-color: white;
+    background-color: var(--tg-theme-bg-color);
     z-index: 10;
     position: absolute;
     width: 100%;
@@ -86,7 +86,7 @@ export default {
     text-transform: uppercase;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: 400;
-    color: #333;
+    color: var(--tg-theme-text-color);
 }
 
 </style>
