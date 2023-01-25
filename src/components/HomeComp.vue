@@ -138,7 +138,7 @@ export default {
 
 .LOGO {
     color: var(--tg-theme-text-color);
-    font-size: 40px;
+    font-size: 35px;
     font-family: cursive;
     font-weight: bold;
 }
@@ -181,7 +181,7 @@ export default {
 
 .viewBtn {
     font-size: var(--fSize);
-    padding: 8px;
+    padding: 5px;
     color:var(--tg-theme-text-color);
     background: var(--background-gr);
     display: flex;
