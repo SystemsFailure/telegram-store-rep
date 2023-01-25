@@ -39,6 +39,7 @@ export default {
 
 body {
   /* background-image: url(./assets/36548.jpg); */
+  background-color:var(--tg-theme-bg-color);
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
@@ -52,6 +53,6 @@ body {
 }
 
 .main-class {
-  color: black;
+  color: var(--tg-theme-text-color);
 }
 </style>

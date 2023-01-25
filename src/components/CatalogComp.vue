@@ -303,6 +303,11 @@ export default {
     background: var(--tg-theme-bg-color);
     color: var(--tg-theme-text-color);
 }
+
+.countBackView {
+    color: var(--tg-theme-text-color);
+}
+
 i {
     margin-top: 4px;
     margin-left: 4px;
