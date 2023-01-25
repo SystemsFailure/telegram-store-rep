@@ -1,7 +1,8 @@
 import { db, storage } from "@/main"
 // import { storage } from "@/main"
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
-import { collection, addDoc, doc, getDoc, updateDoc, increment } from "firebase/firestore";
+import { collection, addDoc, doc, getDoc, updateDoc, increment, arrayUnion } from "firebase/firestore";
+// import { contains } from "@firebase/util";
 const adminPanel = {
     namespaced: true,
     state: () => ({
@@ -37,10 +38,10 @@ const adminPanel = {
     },
     actions: {
         async createdDocument(context) {
-            // data is object, inside which contain data of product, use object to create document, next upload all images 
-            // получаем дату и время
+            if(!context.state.data) return
             const docRef = await addDoc(collection(db, "products"), context.state.data);
-              console.log("Document written with ID: ", docRef.id);
+            console.log("Document written with ID: ", docRef.id);
+            return docRef.id
         },
         
         async getCountImageNumber() {
@@ -73,31 +74,69 @@ const adminPanel = {
                 console.log('so type not denied! change type please')
                 return
             }
-            if(context.state.file.length === 0 || context.state.file === null) {
+            if(context.state.file === null) {
                 console.log('file is null')
                 return
             }
-            const imageRef = ref(storage, `images-of-products/product-${context.state.current_user.id}-${context.state.file[0].name}`+`${0}` + `${typeFile}` || '.png');
-            const task = uploadBytesResumable(imageRef, context.state.file[0])
-            task.on('state_changed', (snapshot) => {
-                const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                context.commit('changeProgress', Math.ceil(progress))
-                // console.log('Upload is ' + Math.ceil(progress) + '% done');
-                switch (snapshot.state) {
-                    case 'paused':
-                      console.log('Upload is paused');
-                      break;
-                    case 'running':
-                      console.log('Upload is running');
-                      break;
+            if (context.state.file.length > 1) {
+                console.log('files more them 1')
+                let userid = null
+                context.dispatch('createdDocument').then((id) => {
+                    userid=id
+                })
+                for (let index = 0; index < context.state.file.length; index++) {
+                    console.log('cycle start')
+                    const element = context.state.file[index];
+                    const index_ = await context.dispatch('getCountImageNumber')
+                    console.log(index_, 'index')
+                    const imageRef = ref(storage, `images-of-products/product-${context.state.current_user.id}-${element.name}`+`${index_}` + `${typeFile}` || '.png');
+                    const task = uploadBytesResumable(imageRef, element)
+                    task.on('state_changed', (snapshot) => {
+                        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                        context.commit('changeProgress', Math.ceil(progress))
+                        // console.log('Upload is ' + Math.ceil(progress) + '% done');
+                        switch (snapshot.state) {
+                            case 'paused':
+                              console.log('Upload is paused');
+                              break;
+                            case 'running':
+                              console.log('Upload is running');
+                              break;
+                        }
+                    }, (err) => console.log(err), () => {
+                        getDownloadURL(task.snapshot.ref).then(async (downloadURL) => {
+                            await updateDoc(doc(db, "products", userid), {
+                                arrayImages: arrayUnion(downloadURL)
+                            });
+                            await context.dispatch('changeFieldIndex')
+                            console.log('File available at', downloadURL, 'increment');
+                        });
+                    })
                 }
-            }, (err) => console.log(err), () => {
-                getDownloadURL(task.snapshot.ref).then((downloadURL) => {
-
-                    console.log('File available at', downloadURL);
-                });
-            })
-            console.log('Uploaded a blob or file!', task);
+                
+            } else {
+                const imageRef = ref(storage, `images-of-products/product-${context.state.current_user.id}-${context.state.file[0].name}`+`${0}` + `${typeFile}` || '.png');
+                const task = uploadBytesResumable(imageRef, context.state.file[0])
+                task.on('state_changed', (snapshot) => {
+                    const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                    context.commit('changeProgress', Math.ceil(progress))
+                    // console.log('Upload is ' + Math.ceil(progress) + '% done');
+                    switch (snapshot.state) {
+                        case 'paused':
+                          console.log('Upload is paused');
+                          break;
+                        case 'running':
+                          console.log('Upload is running');
+                          break;
+                    }
+                }, (err) => console.log(err), () => {
+                    getDownloadURL(task.snapshot.ref).then((downloadURL) => {
+    
+                        console.log('File available at', downloadURL);
+                    });
+                })
+                console.log('Uploaded a blob or file!', task);
+            }
         }
     },
     getters: {

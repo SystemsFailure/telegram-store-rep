@@ -100,38 +100,51 @@ export default {
             let file = e.target.files
             if(file.length === 1) {
                 this.setFileState(file)
-                this.uploadImage()
+                // this.uploadImage()
+            }else {
+                this.setFileState(file)
             }
-            console.log(this.file_state,'nope')
         },
         createdDocumentLocal() {
+            let array = []
             let today = new Date();
             let now = today.toLocaleString();
+            let listInputs = document.getElementsByClassName('inp-class')
+            console.log(listInputs[0].value, typeof listInputs[0].value)
+            for (let index = 0; index < listInputs.length; index++) {
+                if(listInputs[index].value === '') 
+                {
+                    console.log('you dont to contain all fields? please to check field, all field to could be contain')
+                    return
+                }
+                const element = listInputs[index]
+                array.push(element.value)
+            }
             this.setDataState({
                 arrayImages: [],
                 arrayUserReview: [],
                 atCreated: now,
                 atUpdated: now,
-                name: 'name',
-                coutryManufacture: 'coutry',
-                brand: 'brand',
-                collection: 'collection',
-                color: 'color',
-                cost: 'cost',
+                name: array[0],
+                coutryManufacture: array[9],
+                brand: array[5],
+                collection: array[7],
+                color: array[8],
+                cost: array[1],
                 countBuys: '0',
-                description: 'description',
-                gender: 'gender',
-                materialType: 'materialType',
-                procentSale: 'procentSale',
-                sale: 'sale',
-                season: 'season',
-                style: 'style',
-                typeEmployees: 'typeEmployees',
-                typeProduct: 'typeEvent',
+                description: array[4],
+                gender: array[10],
+                materialType: array[11],
+                procentSale: array[3],
+                sale: array[2],
+                season: array[13],
+                style: array[12],
+                typeEmployees: array[14],
+                typeProduct: array[6],
                 modelFeatures: null,
                 typeEvent: null,
             })
-            this.createdDocument()
+            this.uploadImage()
         }
     }
 }
@@ -139,7 +152,8 @@ export default {
 <style scoped>
 .title {
     width: 100%;
-    padding-top: 20px;
+    /* padding-top: 20px; */
+    margin-top: 80px;
     display: flex;
     align-items: center;
     font-size: 12px;
@@ -178,7 +192,7 @@ export default {
     height: 100%;
     overflow: auto;
     padding-bottom: 20px;
-    padding-top: 60px;
+    /* padding-top: 60px; */
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -222,8 +236,8 @@ export default {
 
 .img-box {
     position: relative;
-    margin-top: 10px;
-    padding: 5px 15px 5px 15px;
+    /* margin-top: 10px; */
+    padding: 2px 10px 8px 10px;
     border: 1px solid #999;
     display: flex;
     flex-direction: column;
@@ -241,7 +255,7 @@ export default {
 }
 
 #list-photos {
-    width: 31.52px;
+    width: 26.52px;
     height: 22px;
     display: flex;
     justify-content: center;
@@ -260,12 +274,13 @@ export default {
 }
 
 #progress-id {
-    padding: 14px;
+    padding-bottom: 5px;
     border: 1px solid #999;
     display: flex;
     align-items: flex-end;
-    height: 93px;
-    width: 31.52px;
+    justify-content: center;
+    height: 67px;
+    width: 26.52px;
     transform: translateX(-31.5px) translateY(20px);
 }
 
@@ -286,8 +301,8 @@ export default {
 }
 
 #choiceImage {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     color: #666;
 }
 
