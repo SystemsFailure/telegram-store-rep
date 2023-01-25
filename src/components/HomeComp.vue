@@ -56,13 +56,13 @@
                             <div class="saleCount">{{ prod.sale+'%' }}</div>
                         </div>
                         <div class="info-box">
-                            <span style="color: black;">
+                            <span style="color: var(--tg-theme-text-color);">
                                 {{ prod.cost+' Руб' }}
-                                <span style="color: #555; text-decoration: line-through;">
+                                <span style="color: var(--tg-theme-text-color); text-decoration: line-through;">
                                     {{ prod.sale_+' Руб' }}
                                 </span>
                             </span>
-                            <span style="color: black;">
+                            <span style="color: var(--tg-theme-text-color);">
                                 {{ prod.title }}
                             </span>
                         </div>
