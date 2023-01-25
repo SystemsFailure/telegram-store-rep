@@ -124,6 +124,7 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background: var(--tg-theme-bg-color);
     /* padding: 50px; */
 }
 
@@ -151,13 +152,14 @@ export default {
     width: 100%;
     height: 50px;
     top: 0;
-    background: var(--background-gr);
+    /* background: var(--background-gr); */
 }
 
 .inner-cont-home {
     width: 95%;
     height: 95%;
     overflow: auto;
+    background: var(--tg-theme-bg-color);
     /* border: 1px solid #f98100; */
     box-shadow: 2px 2px 15px #222;
     border-radius: 10px;
