@@ -136,7 +136,7 @@ export default {
 
 
 .LOGO {
-    color: black;
+    color: var(--tg-theme-text-color);
     font-size: 40px;
     font-family: cursive;
     font-weight: bold;
@@ -180,7 +180,7 @@ export default {
 .viewBtn {
     font-size: var(--fSize);
     padding: 8px;
-    color:white;
+    color:var(--tg-theme-text-color);
     background: var(--background-gr);
     display: flex;
     align-items: center;
@@ -203,15 +203,15 @@ export default {
     width: 100%;
     display:flex;
     flex-direction:column;
-    color: white;
+    color: var(--tg-theme-text-color);
 }
 
 .preview-site {
     line-height: 16px;
-    color: #8b8b8b;
+    color: #616161;
     margin: 0 0 10px;
     width: 100%;
-    color: #333;
+    /* color: #333; */
     font-size: 10px;
 }
 
@@ -225,7 +225,7 @@ export default {
     background: linear-gradient(90deg, rgba(252,59,34,1) 100%, rgba(252,59,34,0.30015756302521013) 100%, rgba(253,148,11,1) 100%);
     bottom: 60px;
     border-radius: 5px;
-    color: white;
+    color: var(--tg-theme-text-color);
     padding: 5px;
 }
 
@@ -253,7 +253,7 @@ export default {
     position: absolute;
     padding: 2px;
     transform: translateY(-35px);
-    color: white;
+    color: var(--tg-theme-text-color);
     background: linear-gradient(90deg, rgba(252,59,34,1) 0%, rgba(252,59,34,0.30015756302521013) 35%, rgba(253,148,11,1) 100%);
     border-radius: 5px;
     display: flex;
@@ -270,7 +270,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    color: white;
+    color: var(--tg-theme-text-color);
 }
 
 .img-prod {

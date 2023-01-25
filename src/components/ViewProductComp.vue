@@ -170,11 +170,14 @@ export default {
     width: 100%;
     height: 100%;
     position: absolute;
-    background-color: rgba(188, 188, 188, .7);
+    /* background-color: rgba(188, 188, 188, .7); */
+    background: var(--tg-theme-bg-color);
+    background-color: var(--tg-theme-bg-color);
     padding: 5px;
     padding-top: 50px;
     z-index: 10;
     font-size: 9px;
+    color: var(--tg-theme-text-color);
 }
 
 .inner {
@@ -191,7 +194,9 @@ export default {
     width: 95%;
     height: 100%;
     padding: 5px;
-    background-color: white;
+    /* background-color: white; */
+    background: var(--tg-theme-bg-color);
+    background-color: var(--tg-theme-bg-color);
     border-radius: 10px;
     overflow: auto;
     display: block;
@@ -223,7 +228,8 @@ export default {
     /* height: 100px; */
     padding: 5px;
     margin-top: 20px;
-    border-top: 1px solid #999;
+    /* border-top: 1px solid #999; */
+    border-top: 1px solid var(--tg-theme-bg-color);
 }
 
 .about-product {
@@ -231,7 +237,8 @@ export default {
     /* height: 100px; */
     padding: 5px;
     /* margin-top: 20px; */
-    border-top: 1px solid #999;
+    /* border-top: 1px solid #999; */
+    border-top: 1px solid var(--tg-theme-bg-color);
 }
 
 .detail-product {
@@ -266,7 +273,7 @@ export default {
 .key-box {
     display: flex;
     align-items: center;
-    color: #666;
+    color: var(--tg-theme-text-color);
 }
 
 .value-box {
@@ -346,14 +353,16 @@ export default {
 }
 
 .count-bays {
-    border-left: 1px solid #333;
+    /* border-left: 1px solid #333; */
+    border-left: 1px solid var(--tg-theme-bg-color);
     padding-left: 10px;
     margin-left: 10px;
 }
 
 .count-review {
     margin-left: 10px;
-    border-left: 1px solid #333;
+    /* border-left: 1px solid #333; */
+    border-left: 1px solid var(--tg-theme-bg-color);
     padding-left: 10px;
     color: rgb(200, 104, 0);
 
@@ -363,7 +372,7 @@ export default {
     width: 100%;
     padding: 5px;
     display: flex;
-    color: black;
+    color: var(--tg-theme-text-color);
     font-size: 9px;
 }
 

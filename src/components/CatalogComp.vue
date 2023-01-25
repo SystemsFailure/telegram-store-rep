@@ -103,7 +103,7 @@ export default {
     /* background-color: red; */
     bottom: 0;
     left: 0;
-    color: black;
+    color: var(--tg-theme-text-color);
 }
 
 .inner-content-pagin {
@@ -130,9 +130,11 @@ export default {
     width: 100%;
     height: 100%;
     padding: 10px;
+    background: var(--tg-theme-bg-color);
 }
 
 .inner {
+    background: var(--tg-theme-bg-color);
     width: 100%;
     height: 100%;
     overflow: auto;
@@ -197,7 +199,7 @@ export default {
     white-space: nowrap;
     font-size: 9px;
     line-height: 10px;
-    color: #999;
+    color: var(--tg-theme-text-color);
     font-weight: 400;
 }
 
@@ -211,7 +213,7 @@ export default {
 .cost- {
     font-size: 9px;
     line-height: 20px;
-    color: #242424;
+    color: var(--tg-theme-text-color);
     font-weight: 700;
     margin-right: 10px;
 }
@@ -219,7 +221,7 @@ export default {
 .sale- {
     font-size: 9px;
     line-height: 16px;
-    color: #8b8b8b;
+    color: var(--tg-theme-text-color);
 }
 
 .count-pay {
@@ -248,7 +250,7 @@ export default {
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    color: white;
+    color: var(--tg-theme-text-color);
     background: linear-gradient(90deg, rgba(252,59,34,1) 0%, rgba(252,59,34,0.30015756302521013) 35%, rgba(253,148,11,1) 100%);
 }
 
@@ -270,7 +272,7 @@ export default {
     align-items: center;
     justify-content: center;
     border-radius: 8px;
-    color: white;
+    color: var(--tg-theme-text-color);
     background: linear-gradient(90deg, rgb(0, 36, 242) 0%, rgba(252,59,34,0.30015756302521013) 35%, rgb(200, 0, 250) 100%);
 }
 
@@ -297,16 +299,17 @@ export default {
     overflow: hidden;
     white-space: nowrap;
     max-width: 272px;
+    background: var(--tg-theme-bg-color);
 }
 i {
     margin-top: 4px;
     margin-left: 4px;
-    color: #666;
+    color: var(--tg-theme-text-color);
 
 }
 
 .fi-bs-sort-alt {
     margin-right: 5px;
-    color: #666;
+    color: var(--tg-theme-text-color);
 }
 </style>
