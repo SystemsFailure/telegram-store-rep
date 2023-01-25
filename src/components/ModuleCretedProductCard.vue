@@ -181,7 +181,8 @@ export default {
     width: 100%;
     height: 100%;
     position: absolute;
-    background-color: white;
+    background: var(--tg-theme-bg-color);
+    color: var(--tg-theme-text-color);
     font-size: 9px;
     z-index: 15;
     padding: 10px;
@@ -318,7 +319,7 @@ export default {
     padding: 5px;
     background: none;
     border: 1px solid #999;
-    color: black;
+    color: var(--tg-theme-text-color);
     margin-top: 2px;
     font-size: 9px;
     outline-color: rgb(0, 157, 255);

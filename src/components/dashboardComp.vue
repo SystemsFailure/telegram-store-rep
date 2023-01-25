@@ -40,12 +40,13 @@ export default {
     padding: 5px;
     display:flex;
     align-items: center;
+    color: var(--tg-theme-text-color);
 }
 .main-class-dashboard {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: azure;
+    background: var(--tg-theme-bg-color);
     z-index: 12;
 }
 
