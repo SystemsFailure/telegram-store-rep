@@ -6,15 +6,15 @@
         <div class="inner-cont-home">
 
             <div class="box-preview">
-                <span class="LOGO">Store X</span>
+                <span class="LOGO">Bubblestore</span>
                 <span class="preview-site">
-                    Сайт stockmann.ru – официальный интернет-магазин сети СТОКМАНН.
+                    Сайт Bubblestore.com – официальный интернет-магазин сети Bubblestore.
                      В едином каталоге собраны товары для всей семьи - мужская, женская и детская одежда, обувь, косметика и парфюмерия, аксессуары,
                      а также товары для дома – посуда, текстиль, аксессуары для ванной, предметы интерьера и многое другое.
                 </span>
             </div>
             <div class="view-btn-line">
-                <div class="viewBtn">show catalog</div>
+                <div class="viewBtn">Перейти к товарам</div>
             </div>
             <div class="swiper-container">
 
@@ -125,20 +125,18 @@ export default {
     align-items: center;
     justify-content: center;
     background: var(--tg-theme-bg-color);
-    /* padding: 50px; */
 }
 
 .swiper-container {
     position: relative;
     width: 100%;
     height:100px;
-    /* bottom: 0; */
 }
 
 
 .LOGO {
     color: var(--tg-theme-text-color);
-    font-size: 35px;
+    font-size: 25px;
     font-family: cursive;
     font-weight: bold;
 }
@@ -152,7 +150,6 @@ export default {
     width: 100%;
     height: 50px;
     top: 0;
-    /* background: var(--background-gr); */
 }
 
 .inner-cont-home {
@@ -160,12 +157,10 @@ export default {
     height: 95%;
     overflow: auto;
     background: var(--tg-theme-bg-color);
-    /* border: 1px solid #f98100; */
     box-shadow: 2px 2px 15px #222;
     border-radius: 10px;
     position: relative;
     padding: 8px;
-    /* background: url('@/assets/LOGOPRO2.jpg'); */
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
@@ -233,7 +228,6 @@ export default {
 
 .swiper {
     width: 100%;
-    /* bottom: -100px; */
     bottom: -50px;
 }
 
@@ -246,8 +240,6 @@ export default {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    /* padding: 4px; */
-    /* background: linear-gradient(90deg, rgba(252,59,34,1) 0%, rgba(252,59,34,0.30015756302521013) 35%, rgba(253,148,11,1) 100%); */
     border-radius: 15px;
 }
 
@@ -268,7 +260,6 @@ export default {
     width: 100%;
     padding: 4px;
     display: flex;
-    /* align-items: center; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -281,7 +272,6 @@ export default {
     width: 100%;
     height: 100%;
     border-radius: 15px;
-    /* border:2px solid #222; */
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
